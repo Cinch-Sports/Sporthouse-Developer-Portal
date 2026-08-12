@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build secure youth-sports modules and integrations with the Sporthouse API.">
+  <title>Sporthouse Developers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Sporthouse Developers home"><span class="brand-mark">S</span><span>Sporthouse <em>Developers</em></span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#quickstart">Quickstart</a><a href="#api">API</a><a href="#security">Security</a><a href="#roadmap">Roadmap</a>
+    </nav>
+    <a class="button button-dark" href="https://app.sporthouse.ai/admin/developer">Developer console</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">SPORTHOUSE MODULE PLATFORM · V1 PREVIEW</div>
+      <h1>Build what youth sports needs next.</h1>
+      <p>Connect programs, teams, rosters, and schedules through an organization-approved API designed around explicit permissions and tenant safety.</p>
+      <div class="hero-actions"><a class="button button-lime" href="#quickstart">Start building</a><a class="text-link" href="https://app.sporthouse.ai/admin/marketplace">Explore Marketplace <span>→</span></a></div>
+      <div class="trust-row"><span>✓ OAuth with PKCE</span><span>✓ Granular scopes</span><span>✓ Organization consent</span><span>✓ Audited access</span></div>
+    </section>
+
+    <section class="section intro" id="quickstart">
+      <div><div class="eyebrow teal">QUICKSTART</div><h2>From idea to authorized app.</h2><p>Private applications can connect to the organization that created them. Public Marketplace publishing remains review-gated while the ecosystem is established.</p></div>
+      <ol class="steps">
+        <li><span>01</span><div><h3>Register your app</h3><p>Create a private application in the Developer Console and save the one-time client secret.</p></div></li>
+        <li><span>02</span><div><h3>Request exact scopes</h3><p>Send an administrator through Authorization Code with PKCE S256 to approve only the access you need.</p></div></li>
+        <li><span>03</span><div><h3>Call the API</h3><p>Use a short-lived Bearer token against the versioned API and rotate refresh tokens on every exchange.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="section api-section" id="api">
+      <div class="section-heading"><div><div class="eyebrow lime">READ-ONLY API V1</div><h2>A focused contract, not an internal back door.</h2></div><p>The first surface is intentionally small and allowlisted. Every request is pinned to the authorizing organization.</p></div>
+      <div class="endpoint-grid">
+        <article><span class="method">GET</span><code>/api/v1/programs</code><p>Program identity, dates, sport, status, location, and capacity.</p><b>programs:read</b></article>
+        <article><span class="method">GET</span><code>/api/v1/teams</code><p>Teams associated with programs owned by the authorized organization.</p><b>teams:read</b></article>
+        <article><span class="method">GET</span><code>/api/v1/rosters</code><p>Registration, participant, program, team, and roster status identifiers.</p><b>rosters:read</b></article>
+        <article><span class="method">GET</span><code>/api/v1/schedules</code><p>Organization events, times, locations, teams, and operational status.</p><b>schedules:read</b></article>
+      </div>
+      <div class="code-card"><div class="code-top"><span>Request</span><button id="copy-code" type="button">Copy</button></div><pre><code id="code-sample">curl https://api.sporthouse.ai/api/v1/programs \
+  -H "Authorization: Bearer $SPORTHOUSE_ACCESS_TOKEN"</code></pre></div>
+    </section>
+
+    <section class="section security" id="security">
+      <div><div class="eyebrow teal">SECURITY BY CONTRACT</div><h2>Permission is a product feature.</h2><p>Sporthouse apps are designed to fail closed. Credentials are never stored in plaintext, access can be revoked immediately, and every API request creates an audit record.</p></div>
+      <div class="security-grid"><article><strong>5 min</strong><span>one-time authorization code</span></article><article><strong>1 hour</strong><span>access-token lifetime</span></article><article><strong>30 days</strong><span>rotating refresh window</span></article><article><strong>90 days</strong><span>API access audit retention</span></article></div>
+    </section>
+
+    <section class="section roadmap" id="roadmap">
+      <div class="eyebrow teal">WHAT'S NEXT</div><h2>Building the ecosystem in safe layers.</h2>
+      <div class="roadmap-grid"><article class="active"><span>LIVE</span><h3>OAuth + API gateway</h3><p>Consent, PKCE, scoped tokens, tenant isolation, rate limits, and audits.</p></article><article><span>NEXT</span><h3>Signed webhooks</h3><p>Retryable, idempotent event delivery with testing and failure visibility.</p></article><article><span>REFERENCE MODULE</span><h3>Tournaments</h3><p>The first add-on built against the same contract available to partners.</p></article><article><span>PARTNER ACCESS</span><h3>Review + publishing</h3><p>Certification, listings, versioning, billing, and operational controls.</p></article></div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="brand-mark">S</span><span>Sporthouse Developers</span></div><p>Build safely. Serve families better.</p><div><a href="https://sporthouse.ai/privacy">Privacy</a><a href="https://sporthouse.ai/terms">Terms</a><a href="https://sporthouse.ai">Sporthouse.ai</a></div></footer>
+  <script src="/script.js"></script>
+</body>
+</html>
